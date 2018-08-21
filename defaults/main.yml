@@ -1,0 +1,18 @@
+firewall_ssh_port: 22
+firewall_http_port: 80
+firewall_https_port: 443
+
+firewall_private_ips: []
+firewall_public_ips: []
+firewall_additions: []
+
+firewall_defaults:
+  - rule: allow
+    port: '{{ firewall_ssh_port }}'
+    proto: tcp
+  - rule: allow
+    port: '{{ firewall_http_port }}'
+    proto: tcp
+  - rule: allow
+    port: '{{ firewall_https_port }}'
+    proto: tcp
