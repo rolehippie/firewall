@@ -22,4 +22,5 @@ firewall_http_port: 80
 firewall_http_rule: allow
 firewall_http_enabled: True
 
+firewall_allow_ips: []
 firewall_rules: []

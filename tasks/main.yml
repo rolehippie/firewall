@@ -30,6 +30,15 @@
   tags:
     - firewall
 
+- name: allow ips
+  with_items: '{{ firewall_allow_ips }}'
+  ufw:
+    rule: allow
+    src: '{{ item }}'
+    proto: any
+  tags:
+    - firewall
+
 - name: define ssh
   when: firewall_ssh_enabled
   ufw:
