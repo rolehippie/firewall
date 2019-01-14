@@ -1,0 +1,8 @@
+IPV6={{ "yes" if firwall_ipv6 else "no" }}
+DEFAULT_INPUT_POLICY="{{ firewall_default_input_policy }}"
+DEFAULT_OUTPUT_POLICY="{{ firewall_default_output_policy }}"
+DEFAULT_FORWARD_POLICY="{{ firewall_default_forward_policy }}"
+DEFAULT_APPLICATION_POLICY="{{ firewall_default_app_policy }}"
+MANAGE_BUILTINS={{ "yes" if firewall_mamnage_builtins else "no" }}
+IPT_SYSCTL={{ firewall_ipt_sysctl }}
+IPT_MODULES="{{ firewall_ipt_modules | join(" ") }}"

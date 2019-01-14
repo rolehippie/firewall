@@ -1,18 +1,25 @@
+firwall_ipv6: True
+firewall_default_input_policy: REJECT
+firewall_default_output_policy: ACCEPT
+firewall_default_forward_policy: DROP
+firewall_default_app_policy: SKIP
+firewall_mamnage_builtins: False
+firewall_ipt_sysctl: /etc/ufw/sysctl.conf
+firewall_ipt_modules:
+  - nf_conntrack_ftp
+  - nf_nat_ftp
+  - nf_conntrack_netbios_ns
+
 firewall_ssh_port: 22
-firewall_http_port: 80
+firewall_ssh_rule: allow
+firewall_ssh_enabled: True
+
 firewall_https_port: 443
+firewall_https_rule: allow
+firewall_https_enabled: True
 
-firewall_private_ips: []
-firewall_public_ips: []
-firewall_additions: []
+firewall_http_port: 80
+firewall_http_rule: allow
+firewall_http_enabled: True
 
-firewall_defaults:
-  - rule: allow
-    port: '{{ firewall_ssh_port }}'
-    proto: tcp
-  - rule: allow
-    port: '{{ firewall_http_port }}'
-    proto: tcp
-  - rule: allow
-    port: '{{ firewall_https_port }}'
-    proto: tcp
+firewall_rules: []

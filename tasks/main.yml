@@ -7,6 +7,15 @@
   tags:
     - firewall
 
+- name: write default
+  notify:
+    - reload firewall
+  template:
+    src: default.j2
+    dest: /etc/default/ufw
+  tags:
+    - firewall
+
 - name: reject in
   ufw:
     direction: incoming
@@ -21,39 +30,44 @@
   tags:
     - firewall
 
-- name: allow private
-  with_items: '{{ firewall_private_ips }}'
+- name: define ssh
+  when: firewall_ssh_enabled
   ufw:
-    rule: allow
-    src: '{{ item }}'
+    rule: '{{ firewall_ssh_rule }}'
+    port: '{{ firewall_ssh_port }}'
     proto: any
   tags:
     - firewall
 
-- name: allow public
-  with_items: '{{ firewall_public_ips }}'
+- name: define https
+  when: firewall_https_enabled
   ufw:
-    rule: allow
-    src: '{{ item }}'
+    rule: '{{ firewall_https_rule }}'
+    port: '{{ firewall_https_port }}'
     proto: any
   tags:
     - firewall
 
-- name: define defaults
-  with_items: '{{ firewall_defaults }}'
+- name: define http
+  when: firewall_http_enabled
   ufw:
-    rule: '{{ item.rule }}'
-    port: '{{ item.port }}'
-    proto: '{{ item.proto | default("tcp") }}'
+    rule: '{{ firewall_http_rule }}'
+    port: '{{ firewall_http_port }}'
+    proto: any
   tags:
     - firewall
 
-- name: define additions
-  with_items: '{{ firewall_additions }}'
+- name: define rules
+  with_items: '{{ firewall_rules }}'
   ufw:
     rule: '{{ item.rule }}'
     port: '{{ item.port }}'
-    proto: '{{ item.proto | default("tcp") }}'
+    proto: '{{ item.proto | default("any") }}'
+    direction: '{{ item.direction | default("in") }}'
+    from_ip: '{{ item.from_ip | default("any") }}'
+    from_port: '{{ item.from_port | default("") }}'
+    to_ip: '{{ item.to_ip | default("any") }}'
+    to_port: '{{ item.to_port | default("") }}'
   tags:
     - firewall
 
