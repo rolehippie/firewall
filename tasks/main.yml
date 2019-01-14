@@ -16,6 +16,46 @@
   tags:
     - firewall
 
+- name: write before
+  when: firewall_before_rules
+  notify:
+    - reload firewall
+  copy:
+    content: '{{ firewall_before_rules }}'
+    dest: /etc/ufw/before.rules
+  tags:
+    - firewall
+
+- name: write after
+  when: firewall_after_rules
+  notify:
+    - reload firewall
+  copy:
+    content: '{{ firewall_after_rules }}'
+    dest: /etc/ufw/after.rules
+  tags:
+    - firewall
+
+- name: write before6
+  when: firewall_before6_rules
+  notify:
+    - reload firewall
+  copy:
+    content: '{{ firewall_before6_rules }}'
+    dest: /etc/ufw/before6.rules
+  tags:
+    - firewall
+
+- name: write after6
+  when: firewall_after6_rules
+  notify:
+    - reload firewall
+  copy:
+    content: '{{ firewall_after6_rules }}'
+    dest: /etc/ufw/after6.rules
+  tags:
+    - firewall
+
 - name: reject in
   ufw:
     direction: incoming

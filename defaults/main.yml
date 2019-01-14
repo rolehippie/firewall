@@ -24,3 +24,9 @@ firewall_http_enabled: True
 
 firewall_allow_ips: []
 firewall_rules: []
+
+firewall_before_rules:
+firewall_after_rules:
+
+firewall_before6_rules:
+firewall_after6_rules:
