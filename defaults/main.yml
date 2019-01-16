@@ -1,5 +1,5 @@
 firwall_ipv6: True
-firewall_default_input_policy: REJECT
+firewall_default_input_policy: DROP
 firewall_default_output_policy: ACCEPT
 firewall_default_forward_policy: DROP
 firewall_default_app_policy: SKIP
