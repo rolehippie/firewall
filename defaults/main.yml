@@ -1,14 +1,6 @@
-firwall_ipv6: True
-firewall_default_input_policy: DROP
-firewall_default_output_policy: ACCEPT
-firewall_default_forward_policy: DROP
-firewall_default_app_policy: SKIP
-firewall_mamnage_builtins: False
-firewall_ipt_sysctl: /etc/ufw/sysctl.conf
-firewall_ipt_modules:
-  - nf_conntrack_ftp
-  - nf_nat_ftp
-  - nf_conntrack_netbios_ns
+firewall_incoming_policy: deny
+firewall_outgoing_policy: allow
+firewall_logging: yes
 
 firewall_ssh_port: 22
 firewall_ssh_rule: allow
@@ -27,6 +19,5 @@ firewall_rules: []
 
 firewall_before_rules:
 firewall_after_rules:
-
 firewall_before6_rules:
 firewall_after6_rules:

@@ -7,17 +7,8 @@
   tags:
     - firewall
 
-- name: write default
-  notify:
-    - reload firewall
-  template:
-    src: default.j2
-    dest: /etc/default/ufw
-  tags:
-    - firewall
-
 - name: write before
-  when: firewall_before_rules
+  when: firewall_before_rules is not none
   notify:
     - reload firewall
   copy:
@@ -27,7 +18,7 @@
     - firewall
 
 - name: write after
-  when: firewall_after_rules
+  when: firewall_after_rules is not none
   notify:
     - reload firewall
   copy:
@@ -37,7 +28,7 @@
     - firewall
 
 - name: write before6
-  when: firewall_before6_rules
+  when: firewall_before6_rules is not none
   notify:
     - reload firewall
   copy:
@@ -47,7 +38,7 @@
     - firewall
 
 - name: write after6
-  when: firewall_after6_rules
+  when: firewall_after6_rules is not none
   notify:
     - reload firewall
   copy:
@@ -56,17 +47,17 @@
   tags:
     - firewall
 
-- name: reject in
+- name: policy incoming
   ufw:
     direction: incoming
-    policy: reject
+    policy: '{{ firewall_incoming_policy }}'
   tags:
     - firewall
 
-- name: allow out
+- name: policy outgoing
   ufw:
     direction: outgoing
-    policy: allow
+    policy: '{{ firewall_outgoing_policy }}'
   tags:
     - firewall
 
@@ -120,9 +111,9 @@
   tags:
     - firewall
 
-- name: enable logging
+- name: define logging
   ufw:
-    logging: on
+    logging: '{{ firewall_logging }}'
   tags:
     - firewall
 
