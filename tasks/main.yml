@@ -65,8 +65,8 @@
   with_items: '{{ firewall_allow_ips }}'
   ufw:
     rule: allow
-    src: '{{ item }}'
-    proto: any
+    src: '{{ item.src | default(item) }}'
+    proto: '{{ item.proto | default("any") }}'
   tags:
     - firewall
 
@@ -75,7 +75,7 @@
   ufw:
     rule: '{{ firewall_ssh_rule }}'
     port: '{{ firewall_ssh_port }}'
-    proto: any
+    proto: tcp
   tags:
     - firewall
 
@@ -84,7 +84,7 @@
   ufw:
     rule: '{{ firewall_https_rule }}'
     port: '{{ firewall_https_port }}'
-    proto: any
+    proto: tcp
   tags:
     - firewall
 
@@ -93,7 +93,7 @@
   ufw:
     rule: '{{ firewall_http_rule }}'
     port: '{{ firewall_http_port }}'
-    proto: any
+    proto: tcp
   tags:
     - firewall
 
