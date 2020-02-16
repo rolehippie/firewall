@@ -1,16 +1,16 @@
 firewall_incoming_policy: deny
 firewall_outgoing_policy: allow
-firewall_logging: yes
+firewall_logging: True
 
-firewall_ssh_port: 22
+firewall_ssh_port: 22/tcp
 firewall_ssh_rule: allow
 firewall_ssh_enabled: True
 
-firewall_https_port: 443
+firewall_https_port: 443/tcp
 firewall_https_rule: allow
 firewall_https_enabled: True
 
-firewall_http_port: 80
+firewall_http_port: 80/tcp
 firewall_http_rule: allow
 firewall_http_enabled: True
 
