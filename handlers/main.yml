@@ -1,4 +1,7 @@
-- name: reload firewall
+# Standards: 0.1
+---
+- name: Reload firewall
   ufw:
     state: reloaded
 
+...

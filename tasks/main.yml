@@ -1,124 +1,128 @@
-- name: install packages
+# Standards: 0.1
+---
+- name: Install required packages
   with_items:
     - ufw
   package:
-    name: '{{ item }}'
+    name: "{{ item }}"
     state: present
   tags:
     - firewall
 
-- name: write before
+- name: Write before rules
   when: firewall_before_rules is not none
   notify:
     - reload firewall
   copy:
-    content: '{{ firewall_before_rules }}'
+    content: "{{ firewall_before_rules }}"
     dest: /etc/ufw/before.rules
   tags:
     - firewall
 
-- name: write after
+- name: Write after rules
   when: firewall_after_rules is not none
   notify:
     - reload firewall
   copy:
-    content: '{{ firewall_after_rules }}'
+    content: "{{ firewall_after_rules }}"
     dest: /etc/ufw/after.rules
   tags:
     - firewall
 
-- name: write before6
+- name: Write before6 rules
   when: firewall_before6_rules is not none
   notify:
     - reload firewall
   copy:
-    content: '{{ firewall_before6_rules }}'
+    content: "{{ firewall_before6_rules }}"
     dest: /etc/ufw/before6.rules
   tags:
     - firewall
 
-- name: write after6
+- name: Write after6 rules
   when: firewall_after6_rules is not none
   notify:
     - reload firewall
   copy:
-    content: '{{ firewall_after6_rules }}'
+    content: "{{ firewall_after6_rules }}"
     dest: /etc/ufw/after6.rules
   tags:
     - firewall
 
-- name: policy incoming
+- name: Set incoming policy
   ufw:
     direction: incoming
-    policy: '{{ firewall_incoming_policy }}'
+    policy: "{{ firewall_incoming_policy }}"
   tags:
     - firewall
 
-- name: policy outgoing
+- name: Set outgoing policy
   ufw:
     direction: outgoing
-    policy: '{{ firewall_outgoing_policy }}'
+    policy: "{{ firewall_outgoing_policy }}"
   tags:
     - firewall
 
-- name: allow ips
-  with_items: '{{ firewall_allow_ips }}'
+- name: Allow whitelisat ips
+  loop: "{{ firewall_allow_ips }}"
   ufw:
     rule: allow
-    src: '{{ item.src | default(item) }}'
-    proto: '{{ item.proto | default("any") }}'
+    src: "{{ item.src | default(item) }}"
+    proto: "{{ item.proto | default('any') }}"
   tags:
     - firewall
 
-- name: define ssh
+- name: Define ssh rule
   when: firewall_ssh_enabled
   ufw:
-    rule: '{{ firewall_ssh_rule }}'
-    port: '{{ firewall_ssh_port }}'
+    rule: "{{ firewall_ssh_rule }}"
+    port: "{{ firewall_ssh_port }}"
     proto: tcp
   tags:
     - firewall
 
-- name: define https
+- name: Define https rule
   when: firewall_https_enabled
   ufw:
-    rule: '{{ firewall_https_rule }}'
-    port: '{{ firewall_https_port }}'
+    rule: "{{ firewall_https_rule }}"
+    port: "{{ firewall_https_port }}"
     proto: tcp
   tags:
     - firewall
 
-- name: define http
+- name: Define http rule
   when: firewall_http_enabled
   ufw:
-    rule: '{{ firewall_http_rule }}'
-    port: '{{ firewall_http_port }}'
+    rule: "{{ firewall_http_rule }}"
+    port: "{{ firewall_http_port }}"
     proto: tcp
   tags:
     - firewall
 
-- name: define rules
-  with_items: '{{ firewall_rules }}'
+- name: Define additional rules
+  with_items: "{{ firewall_rules_general + firewall_rules_extra }}"
   ufw:
-    rule: '{{ item.rule }}'
-    port: '{{ item.port }}'
-    proto: '{{ item.proto | default("any") }}'
-    direction: '{{ item.direction | default("in") }}'
-    from_ip: '{{ item.from_ip | default("any") }}'
-    from_port: '{{ item.from_port | default("") }}'
-    to_ip: '{{ item.to_ip | default("any") }}'
-    to_port: '{{ item.to_port | default("") }}'
+    rule: "{{ item.rule }}"
+    port: "{{ item.port }}"
+    proto: "{{ item.proto | default('any') }}"
+    direction: "{{ item.direction | default('in') }}"
+    from_ip: "{{ item.from_ip | default('any') }}"
+    from_port: "{{ item.from_port | default('') }}"
+    to_ip: "{{ item.to_ip | default('any') }}"
+    to_port: "{{ item.to_port | default('') }}"
   tags:
     - firewall
 
-- name: define logging
+- name: Define logging enabled
   ufw:
-    logging: '{{ firewall_logging }}'
+    logging: "{{ firewall_logging }}"
   tags:
     - firewall
 
-- name: enable ufw
+- name: Enable ufw firewall
   ufw:
     state: enabled
   tags:
     - firewall
+
+...

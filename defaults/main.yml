@@ -1,23 +1,60 @@
+# Standards: 0.1
+---
+# @var firewall_incoming_policy:description: Default incoming policy
 firewall_incoming_policy: deny
+
+# @var firewall_outgoing_policy:description: Default outgoing policy
 firewall_outgoing_policy: allow
+
+# @var firewall_logging:description: Enable logging
 firewall_logging: True
 
+# @var firewall_ssh_port:description: SSH port
 firewall_ssh_port: '22'
+
+# @var firewall_ssh_rule:description: SSH rule
 firewall_ssh_rule: allow
+
+# @var firewall_ssh_enabled:description: SSH enabled
 firewall_ssh_enabled: True
 
+# @var firewall_https_port:description: HTTPS port
 firewall_https_port: '443'
+
+# @var firewall_https_rule:description: HTTPS rule
 firewall_https_rule: allow
+
+# @var firewall_https_enabled:description: HTTPS enabled
 firewall_https_enabled: True
 
+# @var firewall_http_port:description: HTTP port
 firewall_http_port: '80'
+
+# @var firewall_http_rule:description: HTTP rule
 firewall_http_rule: allow
+
+# @var firewall_http_enabled:description: HTTP enabled
 firewall_http_enabled: True
 
+# @var floatingip_path:description: List of whitelisted IPs
 firewall_allow_ips: []
-firewall_rules: []
 
+# @var firewall_rules_general:description: General firewall rules
+firewall_rules_general: []
+
+# @var firewall_rules_extra:description: Extra firewall rules
+firewall_rules_extra: []
+
+# @var firewall_before_rules:description: Before rules
 firewall_before_rules:
+
+# @var firewall_after_rules:description: After rules
 firewall_after_rules:
+
+# @var firewall_before6_rules:description: Before IPv6 rules
 firewall_before6_rules:
+
+# @var firewall_after6_rules:description: After IPv6 rules
 firewall_after6_rules:
+
+...
