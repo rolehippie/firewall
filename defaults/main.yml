@@ -1,4 +1,4 @@
-# Standards: 0.1
+# Standards: 1.2
 ---
 # @var firewall_incoming_policy:description: Default incoming policy
 firewall_incoming_policy: deny
