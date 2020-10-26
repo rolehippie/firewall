@@ -1,8 +1,14 @@
 # firewall
 
-[![Build Status](https://cloud.drone.io/api/badges/rolehippie/firewall/status.svg)](https://cloud.drone.io/rolehippie/firewall)
+[![Source Code](https://img.shields.io/badge/github-source%20code-blue?logo=github&logoColor=white)](https://github.com/rolehippie/firewall) [![Build Status](https://img.shields.io/drone/build/rolehippie/firewall/master?logo=drone)](https://cloud.drone.io/rolehippie/firewall) [![License: Apache-2.0](https://img.shields.io/github/license/rolehippie/firewall)](https://github.com/rolehippie/firewall/blob/master/LICENSE) 
 
-Ansible role to configure firewall
+Ansible role to install and configure the firewall. 
+
+## Sponsor 
+
+[![Proact Deutschland GmbH](https://proact.eu/wp-content/uploads/2020/03/proact-logo.png)](https://proact.eu) 
+
+Building and improving this Ansible role have been sponsored by my employer **Proact Deutschland GmbH**.
 
 ## Table of content
 
@@ -229,7 +235,7 @@ List of whitelisted IPs
 
 ## Dependencies
 
-- None
+* None
 
 ## License
 
