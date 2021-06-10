@@ -1,6 +1,6 @@
 # firewall
 
-[![Source Code](https://img.shields.io/badge/github-source%20code-blue?logo=github&logoColor=white)](https://github.com/rolehippie/firewall) [![Build Status](https://img.shields.io/drone/build/rolehippie/firewall/master?logo=drone)](https://cloud.drone.io/rolehippie/firewall) [![License: Apache-2.0](https://img.shields.io/github/license/rolehippie/firewall)](https://github.com/rolehippie/firewall/blob/master/LICENSE) 
+[![Source Code](https://img.shields.io/badge/github-source%20code-blue?logo=github&logoColor=white)](https://github.com/rolehippie/firewall) [![Testing Build](https://github.com/rolehippie/firewall/workflows/testing/badge.svg)](https://github.com/rolehippie/firewall/actions?query=workflow%3Atesting) [![Readme Build](https://github.com/rolehippie/firewall/workflows/readme/badge.svg)](https://github.com/rolehippie/firewall/actions?query=workflow%3Areadme) [![Galaxy Build](https://github.com/rolehippie/firewall/workflows/galaxy/badge.svg)](https://github.com/rolehippie/firewall/actions?query=workflow%3Agalaxy) [![License: Apache-2.0](https://img.shields.io/github/license/rolehippie/firewall)](https://github.com/rolehippie/firewall/blob/master/LICENSE) 
 
 Ansible role to install and configure the firewall. 
 
