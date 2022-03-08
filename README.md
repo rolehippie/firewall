@@ -1,41 +1,42 @@
 # firewall
 
-[![Source Code](https://img.shields.io/badge/github-source%20code-blue?logo=github&logoColor=white)](https://github.com/rolehippie/firewall) [![Testing Build](https://github.com/rolehippie/firewall/workflows/testing/badge.svg)](https://github.com/rolehippie/firewall/actions?query=workflow%3Atesting) [![Readme Build](https://github.com/rolehippie/firewall/workflows/readme/badge.svg)](https://github.com/rolehippie/firewall/actions?query=workflow%3Areadme) [![Galaxy Build](https://github.com/rolehippie/firewall/workflows/galaxy/badge.svg)](https://github.com/rolehippie/firewall/actions?query=workflow%3Agalaxy) [![License: Apache-2.0](https://img.shields.io/github/license/rolehippie/firewall)](https://github.com/rolehippie/firewall/blob/master/LICENSE) 
+[![Source Code](https://img.shields.io/badge/github-source%20code-blue?logo=github&logoColor=white)](https://github.com/rolehippie/firewall) [![Testing Build](https://github.com/rolehippie/firewall/workflows/testing/badge.svg)](https://github.com/rolehippie/firewall/actions?query=workflow%3Atesting) [![Readme Build](https://github.com/rolehippie/firewall/workflows/readme/badge.svg)](https://github.com/rolehippie/firewall/actions?query=workflow%3Areadme) [![Galaxy Build](https://github.com/rolehippie/firewall/workflows/galaxy/badge.svg)](https://github.com/rolehippie/firewall/actions?query=workflow%3Agalaxy) [![License: Apache-2.0](https://img.shields.io/github/license/rolehippie/firewall)](https://github.com/rolehippie/firewall/blob/master/LICENSE)
 
-Ansible role to install and configure the firewall. 
+Ansible role to install and configure the firewall.
 
-## Sponsor 
+## Sponsor
 
-[![Proact Deutschland GmbH](https://proact.eu/wp-content/uploads/2020/03/proact-logo.png)](https://proact.eu) 
+[![Proact Deutschland GmbH](https://proact.eu/wp-content/uploads/2020/03/proact-logo.png)](https://proact.eu)
 
 Building and improving this Ansible role have been sponsored by my employer **Proact Deutschland GmbH**.
 
 ## Table of content
 
-* [Default Variables](#default-variables)
-  * [firewall_after6_rules](#firewall_after6_rules)
-  * [firewall_after_rules](#firewall_after_rules)
-  * [firewall_allow_ips](#firewall_allow_ips)
-  * [firewall_before6_rules](#firewall_before6_rules)
-  * [firewall_before_rules](#firewall_before_rules)
-  * [firewall_http_enabled](#firewall_http_enabled)
-  * [firewall_http_port](#firewall_http_port)
-  * [firewall_http_rule](#firewall_http_rule)
-  * [firewall_https_enabled](#firewall_https_enabled)
-  * [firewall_https_port](#firewall_https_port)
-  * [firewall_https_rule](#firewall_https_rule)
-  * [firewall_incoming_policy](#firewall_incoming_policy)
-  * [firewall_logging](#firewall_logging)
-  * [firewall_outgoing_policy](#firewall_outgoing_policy)
-  * [firewall_rules_extra](#firewall_rules_extra)
-  * [firewall_rules_general](#firewall_rules_general)
-  * [firewall_ssh_enabled](#firewall_ssh_enabled)
-  * [firewall_ssh_port](#firewall_ssh_port)
-  * [firewall_ssh_rule](#firewall_ssh_rule)
-  * [floatingip_path](#floatingip_path)
-* [Dependencies](#dependencies)
-* [License](#license)
-* [Author](#author)
+- [Default Variables](#default-variables)
+  - [firewall_after6_rules](#firewall_after6_rules)
+  - [firewall_after_rules](#firewall_after_rules)
+  - [firewall_allow_ips](#firewall_allow_ips)
+  - [firewall_before6_rules](#firewall_before6_rules)
+  - [firewall_before_rules](#firewall_before_rules)
+  - [firewall_http_enabled](#firewall_http_enabled)
+  - [firewall_http_port](#firewall_http_port)
+  - [firewall_http_rule](#firewall_http_rule)
+  - [firewall_https_enabled](#firewall_https_enabled)
+  - [firewall_https_port](#firewall_https_port)
+  - [firewall_https_rule](#firewall_https_rule)
+  - [firewall_incoming_policy](#firewall_incoming_policy)
+  - [firewall_logging](#firewall_logging)
+  - [firewall_outgoing_policy](#firewall_outgoing_policy)
+  - [firewall_rules_extra](#firewall_rules_extra)
+  - [firewall_rules_general](#firewall_rules_general)
+  - [firewall_ssh_enabled](#firewall_ssh_enabled)
+  - [firewall_ssh_port](#firewall_ssh_port)
+  - [firewall_ssh_rule](#firewall_ssh_rule)
+  - [floatingip_path](#floatingip_path)
+- [Discovered Tags](#discovered-tags)
+- [Dependencies](#dependencies)
+- [License](#license)
+- [Author](#author)
 
 ---
 
@@ -233,9 +234,14 @@ firewall_ssh_rule: allow
 
 List of whitelisted IPs
 
+## Discovered Tags
+
+**_firewall_**
+
+
 ## Dependencies
 
-* None
+- None
 
 ## License
 
