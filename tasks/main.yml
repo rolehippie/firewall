@@ -1,9 +1,8 @@
-# Standards: 1.2
 ---
 - name: Install required packages
-  with_items:
+  loop:
     - ufw
-  package:
+  ansible.builtin.package:
     name: "{{ item }}"
     state: present
   tags:
@@ -13,7 +12,7 @@
   when: firewall_before_rules is not none
   notify:
     - reload firewall
-  copy:
+  ansible.builtin.copy:
     content: "{{ firewall_before_rules }}"
     dest: /etc/ufw/before.rules
     owner: root
@@ -26,7 +25,7 @@
   when: firewall_after_rules is not none
   notify:
     - reload firewall
-  copy:
+  ansible.builtin.copy:
     content: "{{ firewall_after_rules }}"
     dest: /etc/ufw/after.rules
     owner: root
@@ -39,7 +38,7 @@
   when: firewall_before6_rules is not none
   notify:
     - reload firewall
-  copy:
+  ansible.builtin.copy:
     content: "{{ firewall_before6_rules }}"
     dest: /etc/ufw/before6.rules
     owner: root
@@ -52,7 +51,7 @@
   when: firewall_after6_rules is not none
   notify:
     - reload firewall
-  copy:
+  ansible.builtin.copy:
     content: "{{ firewall_after6_rules }}"
     dest: /etc/ufw/after6.rules
     owner: root
@@ -62,14 +61,14 @@
     - firewall
 
 - name: Set incoming policy
-  ufw:
+  community.general.ufw:
     direction: incoming
     policy: "{{ firewall_incoming_policy }}"
   tags:
     - firewall
 
 - name: Set outgoing policy
-  ufw:
+  community.general.ufw:
     direction: outgoing
     policy: "{{ firewall_outgoing_policy }}"
   tags:
@@ -77,7 +76,7 @@
 
 - name: Allow whitelisat ips
   loop: "{{ firewall_allow_ips }}"
-  ufw:
+  community.general.ufw:
     rule: allow
     src: "{{ item.src | default(item) }}"
     proto: "{{ item.proto | default('any') }}"
@@ -86,7 +85,7 @@
 
 - name: Define ssh rule
   when: firewall_ssh_enabled
-  ufw:
+  community.general.ufw:
     rule: "{{ firewall_ssh_rule }}"
     port: "{{ firewall_ssh_port }}"
     proto: tcp
@@ -95,7 +94,7 @@
 
 - name: Define https rule
   when: firewall_https_enabled
-  ufw:
+  community.general.ufw:
     rule: "{{ firewall_https_rule }}"
     port: "{{ firewall_https_port }}"
     proto: tcp
@@ -104,7 +103,7 @@
 
 - name: Define http rule
   when: firewall_http_enabled
-  ufw:
+  community.general.ufw:
     rule: "{{ firewall_http_rule }}"
     port: "{{ firewall_http_port }}"
     proto: tcp
@@ -113,7 +112,7 @@
 
 - name: Define additional rules
   with_items: "{{ firewall_rules_general + firewall_rules_extra }}"
-  ufw:
+  community.general.ufw:
     rule: "{{ item.rule }}"
     port: "{{ item.port }}"
     proto: "{{ item.proto | default('any') }}"
@@ -126,13 +125,13 @@
     - firewall
 
 - name: Define logging enabled
-  ufw:
+  community.general.ufw:
     logging: "{{ firewall_logging }}"
   tags:
     - firewall
 
 - name: Enable ufw firewall
-  ufw:
+  community.general.ufw:
     state: enabled
   tags:
     - firewall

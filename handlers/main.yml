@@ -1,7 +1,6 @@
-# Standards: 1.2
 ---
 - name: Reload firewall
-  ufw:
+  community.general.ufw:
     state: reloaded
 
 ...
