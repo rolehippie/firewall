@@ -249,7 +249,7 @@ List of whitelisted IPs
 
 ## Dependencies
 
-- None
+- [community.general](https://github.com/ansible-collections/community.general)
 
 ## License
 
