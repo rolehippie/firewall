@@ -9,7 +9,8 @@
     - firewall
 
 - name: Write before rules
-  when: firewall_before_rules is not none
+  when:
+    - firewall_before_rules is not none
   notify:
     - reload firewall
   ansible.builtin.copy:
@@ -22,7 +23,8 @@
     - firewall
 
 - name: Write after rules
-  when: firewall_after_rules is not none
+  when:
+    - firewall_after_rules is not none
   notify:
     - reload firewall
   ansible.builtin.copy:
@@ -35,7 +37,8 @@
     - firewall
 
 - name: Write before6 rules
-  when: firewall_before6_rules is not none
+  when:
+    - firewall_before6_rules is not none
   notify:
     - reload firewall
   ansible.builtin.copy:
@@ -48,7 +51,8 @@
     - firewall
 
 - name: Write after6 rules
-  when: firewall_after6_rules is not none
+  when:
+    - firewall_after6_rules is not none
   notify:
     - reload firewall
   ansible.builtin.copy:
@@ -84,7 +88,8 @@
     - firewall
 
 - name: Define ssh rule
-  when: firewall_ssh_enabled
+  when:
+    - firewall_ssh_enabled
   community.general.ufw:
     rule: "{{ firewall_ssh_rule }}"
     port: "{{ firewall_ssh_port }}"
@@ -93,7 +98,8 @@
     - firewall
 
 - name: Define https rule
-  when: firewall_https_enabled
+  when:
+    - firewall_https_enabled
   community.general.ufw:
     rule: "{{ firewall_https_rule }}"
     port: "{{ firewall_https_port }}"
@@ -102,7 +108,8 @@
     - firewall
 
 - name: Define http rule
-  when: firewall_http_enabled
+  when:
+    - firewall_http_enabled
   community.general.ufw:
     rule: "{{ firewall_http_rule }}"
     port: "{{ firewall_http_port }}"
@@ -111,16 +118,16 @@
     - firewall
 
 - name: Define additional rules
-  with_items: "{{ firewall_rules_general + firewall_rules_extra }}"
+  loop: "{{ firewall_rules_general + firewall_rules_extra }}"
   community.general.ufw:
     rule: "{{ item.rule }}"
     port: "{{ item.port }}"
-    proto: "{{ item.proto | default('any') }}"
-    direction: "{{ item.direction | default('in') }}"
-    from_ip: "{{ item.from_ip | default('any') }}"
-    from_port: "{{ item.from_port | default('') }}"
-    to_ip: "{{ item.to_ip | default('any') }}"
-    to_port: "{{ item.to_port | default('') }}"
+    proto: "{{ item.proto | default(omit) }}"
+    direction: "{{ item.direction | default(omit) }}"
+    from_ip: "{{ item.from_ip | default(omit) }}"
+    from_port: "{{ item.from_port | default(omit) }}"
+    to_ip: "{{ item.to_ip | default(omit) }}"
+    to_port: "{{ item.to_port | default(omit) }}"
   tags:
     - firewall
 

@@ -6,7 +6,7 @@ firewall_incoming_policy: deny
 firewall_outgoing_policy: allow
 
 # @var firewall_logging:description: Enable logging
-firewall_logging: True
+firewall_logging: true
 
 # @var firewall_ssh_port:description: SSH port
 firewall_ssh_port: '22'
@@ -15,7 +15,7 @@ firewall_ssh_port: '22'
 firewall_ssh_rule: allow
 
 # @var firewall_ssh_enabled:description: SSH enabled
-firewall_ssh_enabled: True
+firewall_ssh_enabled: true
 
 # @var firewall_https_port:description: HTTPS port
 firewall_https_port: '443'
@@ -24,7 +24,7 @@ firewall_https_port: '443'
 firewall_https_rule: allow
 
 # @var firewall_https_enabled:description: HTTPS enabled
-firewall_https_enabled: True
+firewall_https_enabled: true
 
 # @var firewall_http_port:description: HTTP port
 firewall_http_port: '80'
@@ -33,15 +33,63 @@ firewall_http_port: '80'
 firewall_http_rule: allow
 
 # @var firewall_http_enabled:description: HTTP enabled
-firewall_http_enabled: True
+firewall_http_enabled: true
 
-# @var floatingip_path:description: List of whitelisted IPs
+# @var firewall_allow_ips:description: List of whitelisted IPs
+# @var firewall_allow_ips:example: >
+# firewall_allow_ips:
+#   - 192.168.1.1/24
+#   - src: 192.168.2.1/24
+#     proto: tcp
+# @end
 firewall_allow_ips: []
 
 # @var firewall_rules_general:description: General firewall rules
+# @var firewall_rules_general:example: >
+# firewall_rules_general:
+#   - rule: allow
+#     port: 22
+#     proto: tcp
+#     direction: in
+#     from_ip: any
+#   - rule: deny
+#     port: 443
+#     proto: tcp
+#     direction: in
+#     from_ip: any
+#   - rule: allow
+#     port: 443
+#     proto: tcp
+#     direction: out
+#     to_ip: 192.168.1.1
+#     to_port: 443
+#   - rule: reject
+#     port: auth
+# @end
 firewall_rules_general: []
 
 # @var firewall_rules_extra:description: Extra firewall rules
+# @var firewall_rules_extra:example: >
+# firewall_rules_extra:
+#   - rule: allow
+#     port: 22
+#     proto: tcp
+#     direction: in
+#     from_ip: any
+#   - rule: deny
+#     port: 443
+#     proto: tcp
+#     direction: in
+#     from_ip: any
+#   - rule: allow
+#     port: 443
+#     proto: tcp
+#     direction: out
+#     to_ip: 192.168.1.1
+#     to_port: 443
+#   - rule: reject
+#     port: auth
+# @end
 firewall_rules_extra: []
 
 # @var firewall_before_rules:description: Before rules

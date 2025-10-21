@@ -1,4 +1,4 @@
-# workspace
+# firewall
 
 [![Source Code](https://img.shields.io/badge/github-source%20code-blue?logo=github&logoColor=white)](https://github.com/rolehippie/firewall)
 [![General Workflow](https://github.com/rolehippie/firewall/actions/workflows/general.yml/badge.svg)](https://github.com/rolehippie/firewall/actions/workflows/general.yml)
@@ -36,7 +36,6 @@ Building and improving this Ansible role have been sponsored by my current and p
   - [firewall_ssh_enabled](#firewall_ssh_enabled)
   - [firewall_ssh_port](#firewall_ssh_port)
   - [firewall_ssh_rule](#firewall_ssh_rule)
-  - [floatingip_path](#floatingip_path)
 - [Discovered Tags](#discovered-tags)
 - [Dependencies](#dependencies)
 - [License](#license)
@@ -72,10 +71,21 @@ firewall_after_rules:
 
 ### firewall_allow_ips
 
+List of whitelisted IPs
+
 #### Default value
 
 ```YAML
 firewall_allow_ips: []
+```
+
+#### Example usage
+
+```YAML
+firewall_allow_ips:
+  - 192.168.1.1/24
+  - src: 192.168.2.1/24
+    proto: tcp
 ```
 
 ### firewall_before6_rules
@@ -198,6 +208,30 @@ Extra firewall rules
 firewall_rules_extra: []
 ```
 
+#### Example usage
+
+```YAML
+firewall_rules_extra:
+  - rule: allow
+    port: 22
+    proto: tcp
+    direction: in
+    from_ip: any
+  - rule: deny
+    port: 443
+    proto: tcp
+    direction: in
+    from_ip: any
+  - rule: allow
+    port: 443
+    proto: tcp
+    direction: out
+    to_ip: 192.168.1.1
+    to_port: 443
+  - rule: reject
+    port: auth
+```
+
 ### firewall_rules_general
 
 General firewall rules
@@ -206,6 +240,30 @@ General firewall rules
 
 ```YAML
 firewall_rules_general: []
+```
+
+#### Example usage
+
+```YAML
+firewall_rules_general:
+  - rule: allow
+    port: 22
+    proto: tcp
+    direction: in
+    from_ip: any
+  - rule: deny
+    port: 443
+    proto: tcp
+    direction: in
+    from_ip: any
+  - rule: allow
+    port: 443
+    proto: tcp
+    direction: out
+    to_ip: 192.168.1.1
+    to_port: 443
+  - rule: reject
+    port: auth
 ```
 
 ### firewall_ssh_enabled
@@ -237,10 +295,6 @@ SSH rule
 ```YAML
 firewall_ssh_rule: allow
 ```
-
-### floatingip_path
-
-List of whitelisted IPs
 
 ## Discovered Tags
 

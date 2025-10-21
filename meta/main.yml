@@ -29,11 +29,15 @@ galaxy_info:
       versions:
         - focal
         - jammy
+        - noble
   galaxy_tags:
     - firewall
     - ufw
     - iptables
 
 dependencies: []
+
+collections:
+  - community.general
 
 ...
