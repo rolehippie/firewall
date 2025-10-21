@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.0](https://github.com/rolehippie/firewall/compare/v2.0.0...v2.1.0) (2025-10-21)
+
+
+### Features
+
+* apply new repo structure and update linting ([a9e8dd5](https://github.com/rolehippie/firewall/commit/a9e8dd54a426e265069b0a0770ceb0790f85cc1c))
+
 ## [2.0.0](https://github.com/rolehippie/firewall/compare/v1.0.0...v2.0.0) (2024-02-12)
 
 
