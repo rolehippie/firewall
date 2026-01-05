@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.2.0](https://github.com/rolehippie/firewall/compare/v3.1.0...v3.2.0) (2026-01-05)
+
+
+### Features
+
+* **minor:** update dependency community.general to >=12.2.0,<12.3.0 ([#37](https://github.com/rolehippie/firewall/issues/37)) ([b436f67](https://github.com/rolehippie/firewall/commit/b436f67abdf21e89999f7beefac6acfc1a25568b))
+
 ## [3.1.0](https://github.com/rolehippie/firewall/compare/v3.0.0...v3.1.0) (2025-12-08)
 
 
