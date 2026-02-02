@@ -1,5 +1,18 @@
 # Changelog
 
+## [3.3.0](https://github.com/rolehippie/firewall/compare/v3.2.0...v3.3.0) (2026-02-02)
+
+### Dependencies
+
+* **minor:** update dependency community.general to >=12.3.0,<12.4.0 ([#42](https://github.com/rolehippie/firewall/issues/42)) ([8e93620](https://github.com/rolehippie/firewall/commit/8e936208317153637be7660b59cdddb5f66f9825))
+
+### Miscellaneous
+
+* **flake:** updated lockfile [skip ci] ([161da9d](https://github.com/rolehippie/firewall/commit/161da9d1d80737404ca3abf963d0b09a11d57838))
+* **flake:** updated lockfile [skip ci] ([34d1a83](https://github.com/rolehippie/firewall/commit/34d1a83cd5eead7174cc0725fc48214399100e8e))
+* **flake:** updated lockfile [skip ci] ([bbaec2e](https://github.com/rolehippie/firewall/commit/bbaec2ef77c9469543267948cc352552d23de945))
+* **flake:** updated lockfile [skip ci] ([d7c6e4d](https://github.com/rolehippie/firewall/commit/d7c6e4dec72941329b897f5e6b5ca2d73d9f78af))
+
 ## [3.2.0](https://github.com/rolehippie/firewall/compare/v3.1.0...v3.2.0) (2026-01-05)
 
 
