@@ -1,5 +1,14 @@
 # Changelog
 
+## [4.5.0](https://github.com/rolehippie/firewall/compare/v4.4.0...v4.5.0) (2026-08-17)
+
+### Dependencies
+
+* **minor:** update dependency community.general to >=13.3.0,<13.4.0 ([#59](https://github.com/rolehippie/firewall/issues/59)) ([cc56439](https://github.com/rolehippie/firewall/commit/cc564397caf7daa9bbf9159b38d0caf01711d080))
+* **minor:** update dependency pipx:ansible-lint to v26.8.0 ([#61](https://github.com/rolehippie/firewall/issues/61)) ([061ce78](https://github.com/rolehippie/firewall/commit/061ce7887f5a4aba21f02782f46638f7ca1912ec))
+* **patch:** update dependency pipx:ansible-core to v2.21.3 ([#58](https://github.com/rolehippie/firewall/issues/58)) ([86fa9cf](https://github.com/rolehippie/firewall/commit/86fa9cfe58b404287d5d3fa1931848187e277fe9))
+* **patch:** update dependency pre-commit to v4.6.2 ([#60](https://github.com/rolehippie/firewall/issues/60)) ([37e3b92](https://github.com/rolehippie/firewall/commit/37e3b925b3d93d8409738eb84b762a00a657c990))
+
 ## [4.4.0](https://github.com/rolehippie/firewall/compare/v4.3.0...v4.4.0) (2026-08-10)
 
 ### Dependencies
