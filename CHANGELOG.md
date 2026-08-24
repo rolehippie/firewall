@@ -1,5 +1,11 @@
 # Changelog
 
+## [4.6.0](https://github.com/rolehippie/firewall/compare/v4.5.0...v4.6.0) (2026-08-24)
+
+### Dependencies
+
+* **minor:** update dependency pipx:molecule to v26.8.0 ([#62](https://github.com/rolehippie/firewall/issues/62)) ([31f85fd](https://github.com/rolehippie/firewall/commit/31f85fde207f6d4252a2e4ee19b7234fe70fa6d6))
+
 ## [4.5.0](https://github.com/rolehippie/firewall/compare/v4.4.0...v4.5.0) (2026-08-17)
 
 ### Dependencies
