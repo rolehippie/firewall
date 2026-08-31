@@ -1,5 +1,11 @@
 # Changelog
 
+## [4.6.1](https://github.com/rolehippie/firewall/compare/v4.6.0...v4.6.1) (2026-08-31)
+
+### Dependencies
+
+* **patch:** update dependency pipx:ansible-doctor to v8.4.1 ([#63](https://github.com/rolehippie/firewall/issues/63)) ([5aaaee0](https://github.com/rolehippie/firewall/commit/5aaaee009942b6f5625409f4028c5ceb69dba180))
+
 ## [4.6.0](https://github.com/rolehippie/firewall/compare/v4.5.0...v4.6.0) (2026-08-24)
 
 ### Dependencies
