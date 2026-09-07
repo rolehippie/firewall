@@ -1,5 +1,11 @@
 # Changelog
 
+## [4.7.0](https://github.com/rolehippie/firewall/compare/v4.6.1...v4.7.0) (2026-09-07)
+
+### Features
+
+* add separate requirements for molecule run ([7535331](https://github.com/rolehippie/firewall/commit/75353312daab86faea0857b475a1d3f762506a66))
+
 ## [4.6.1](https://github.com/rolehippie/firewall/compare/v4.6.0...v4.6.1) (2026-08-31)
 
 ### Dependencies
