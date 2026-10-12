@@ -1,5 +1,20 @@
 # Changelog
 
+## [4.9.0](https://github.com/rolehippie/firewall/compare/v4.8.0...v4.9.0) (2026-10-12)
+
+### Dependencies
+
+* **minor:** update dependency community.general to >=13.5.0,<13.6.0 ([#75](https://github.com/rolehippie/firewall/issues/75)) ([e8752be](https://github.com/rolehippie/firewall/commit/e8752be7ba8774b3d2f78c68eda7a6be0815bec6))
+* **mise:** update dependency pipx:ansible-core to v2.21.5 ([#73](https://github.com/rolehippie/firewall/issues/73)) ([21d97d9](https://github.com/rolehippie/firewall/commit/21d97d9432795919601e6a459288dcb7a6361a8f))
+* **mise:** update dependency pipx:ansible-doctor to v8.4.2 ([#67](https://github.com/rolehippie/firewall/issues/67)) ([ccdfc3b](https://github.com/rolehippie/firewall/commit/ccdfc3b08bc9709288306da42fec73f42b4f10fe))
+* **mise:** update dependency pipx:ansible-doctor to v8.4.3 ([#74](https://github.com/rolehippie/firewall/issues/74)) ([7bab758](https://github.com/rolehippie/firewall/commit/7bab758d3b8ab3abcfc4126376fc0f766084bae6))
+* **mise:** update dependency pipx:ansible-lint to v26.10.0 ([#76](https://github.com/rolehippie/firewall/issues/76)) ([34c0649](https://github.com/rolehippie/firewall/commit/34c06498b2c2cb2068df872aaed261f4c8998837))
+* **mise:** update dependency pipx:ansible-lint to v26.9.0 ([#68](https://github.com/rolehippie/firewall/issues/68)) ([593f955](https://github.com/rolehippie/firewall/commit/593f955c6ab0f8c5ae7f4e956781ed75c3d9ebe5))
+* **mise:** update dependency pipx:molecule to v26.10.0 ([#77](https://github.com/rolehippie/firewall/issues/77)) ([3206611](https://github.com/rolehippie/firewall/commit/3206611c86f34f86ccfbf2f02dfa13bef8a8e866))
+* **mise:** update dependency pipx:molecule to v26.9.0 ([#69](https://github.com/rolehippie/firewall/issues/69)) ([baaf7a5](https://github.com/rolehippie/firewall/commit/baaf7a50d63ce26c8eadfa2a244bd13b086c66eb))
+* **mise:** update dependency prek to v0.5.4 ([#70](https://github.com/rolehippie/firewall/issues/70)) ([8f576f8](https://github.com/rolehippie/firewall/commit/8f576f85a15ce61dd845a16caa785db1aeac561d))
+* **mise:** update dependency prek to v0.5.5 ([#72](https://github.com/rolehippie/firewall/issues/72)) ([7149041](https://github.com/rolehippie/firewall/commit/71490414a5397a141687ed694d95edc18a33a371))
+
 ## [4.8.0](https://github.com/rolehippie/firewall/compare/v4.7.0...v4.8.0) (2026-09-14)
 
 ### Dependencies
